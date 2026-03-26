@@ -55,11 +55,15 @@ Edit fetch_used_ips.py and main.tf and replace:
 `API_TOKEN = "<YOUR_PROXMOX_API_TOKEN>"`
 
 # main.tf provider block
-`provider "proxmox" {
-  endpoint  = "https://<PROXMOX_HOST>:8006/"
-  api_token = "<YOUR_PROXMOX_API_TOKEN>"
-  insecure  = true
-}`
+  `provider "proxmox" {`
+
+  `endpoint  = "https://<PROXMOX_HOST>:8006/"`
+  
+  `api_token = "<YOUR_PROXMOX_API_TOKEN>"`
+  
+  `insecure  = true`
+  
+`}`
 
 ⚠️ Never commit your real API token or credentials to a public repository. ⚠️
 
