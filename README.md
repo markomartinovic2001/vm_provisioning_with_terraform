@@ -40,7 +40,7 @@ This repository contains scripts and Terraform configuration for automating VM c
 git clone <repo-url>
 cd <repo-directory>
 
-# After `cd <repo-directory>`, everything below is inside this block
+# After `cd <repo-directory>`, everything below is inside this block #
 
 # -------------------------------
 # Step 2: Update Proxmox credentials
