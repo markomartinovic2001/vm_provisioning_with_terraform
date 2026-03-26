@@ -72,14 +72,21 @@ Edit fetch_used_ips.py and main.tf and replace:
 -------------------------------
 Edit variables.tf or provide values during terraform apply:
 
-vm_name         = "terraform-test"
-vm_id           = 105
-cpu_cores       = 1
-memory_mb       = 1024
-vm_template_id  = 104
-ip_range_start  = 11
-ip_range_end    = 49
-network_prefix  = "192.168.0"
+`vm_name         = "terraform-test"`
+
+`vm_id           = 105`
+
+`cpu_cores       = 1`
+
+`memory_mb       = 1024`
+
+`vm_template_id  = 104`
+
+`ip_range_start  = 11`
+
+`ip_range_end    = 49`
+
+`network_prefix  = "192.168.0"`
 
 -------------------------------
 # Step 3: Fetch used IPs
