@@ -94,22 +94,32 @@ Edit variables.tf or provide values during terraform apply:
 python3 fetch_used_ips.py
 
 Example output:
-{"used_ips": ["192.168.0.11", "192.168.0.12", "192.168.0.13"]}
+
+`{"used_ips": ["192.168.0.11", "192.168.0.12", "192.168.0.13"]}`
 
 -------------------------------
 # Step 4: Determine the next free IP
 -------------------------------
-cat <<EOF | python3 next_ip.py
-{
-  "start": 11,
-  "end": 49,
-  "network_prefix": "192.168.0",
-  "used_ips": ["192.168.0.11","192.168.0.12","192.168.0.13"]
-}
-EOF
+`cat <<EOF | python3 next_ip.py`
+
+`{`
+
+  `"start": 11,`
+  
+  `"end": 49,`
+  
+  `"network_prefix": "192.168.0",`
+  
+  `"used_ips": ["192.168.0.11","192.168.0.12","192.168.0.13"]`
+  
+`}`
+
+`EOF`
+
 
 Example output:
-{"ip_address": "192.168.0.14"}
+
+`{"ip_address": "192.168.0.14"}`
 
 -------------------------------
 # Step 5: Provision the VM with Terraform
