@@ -40,14 +40,14 @@ This repository contains scripts and Terraform configuration for automating VM c
 git clone <repo-url>
 cd <repo-directory>
 
-# After `cd <repo-directory>`, everything below is inside this block #
+After `cd <repo-directory>`, everything below is inside this block
 
-# -------------------------------
+-------------------------------
 # Step 2: Update Proxmox credentials
-# -------------------------------
-# Edit fetch_used_ips.py and main.tf and replace:
+-------------------------------
+Edit fetch_used_ips.py and main.tf and replace:
 
-# fetch_used_ips.py
+fetch_used_ips.py
 PROXMOX_URL = "https://<PROXMOX_HOST>:8006/api2/json"
 API_TOKEN = "<YOUR_PROXMOX_API_TOKEN>"
 
