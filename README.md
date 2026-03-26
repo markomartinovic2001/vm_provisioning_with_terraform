@@ -48,16 +48,18 @@ After `cd <repo-directory>`, everything below is inside this block
 -------------------------------
 Edit fetch_used_ips.py and main.tf and replace:
 
-fetch_used_ips.py
-PROXMOX_URL = "https://<PROXMOX_HOST>:8006/api2/json"
-API_TOKEN = "<YOUR_PROXMOX_API_TOKEN>"
+`fetch_used_ips.py`
+
+`PROXMOX_URL = "https://<PROXMOX_HOST>:8006/api2/json"`
+
+`API_TOKEN = "<YOUR_PROXMOX_API_TOKEN>"`
 
 # main.tf provider block
-provider "proxmox" {
+`provider "proxmox" {
   endpoint  = "https://<PROXMOX_HOST>:8006/"
   api_token = "<YOUR_PROXMOX_API_TOKEN>"
   insecure  = true
-}
+}`
 
 ⚠️ Never commit your real API token or credentials to a public repository. ⚠️
 
