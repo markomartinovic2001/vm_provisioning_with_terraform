@@ -43,7 +43,7 @@ cd <repo-directory>
 After `cd <repo-directory>`, everything below is inside this block
 
 -------------------------------
-# Step 2: Update Proxmox credentials
+# Step 1: Update Proxmox credentials
 -------------------------------
 Edit fetch_used_ips.py and main.tf and replace:
 
@@ -60,10 +60,10 @@ provider "proxmox" {
 
 ⚠️ Never commit your real API token or credentials to a public repository. ⚠️
 
-# -------------------------------
-# Step 3: Configure VM variables
-# -------------------------------
-# Edit variables.tf or provide values during terraform apply:
+-------------------------------
+# Step 2: Configure VM variables
+-------------------------------
+Edit variables.tf or provide values during terraform apply:
 
 vm_name         = "terraform-test"
 vm_id           = 105
@@ -74,17 +74,17 @@ ip_range_start  = 11
 ip_range_end    = 49
 network_prefix  = "192.168.0"
 
-# -------------------------------
-# Step 1: Fetch used IPs
-# -------------------------------
+-------------------------------
+# Step 3: Fetch used IPs
+-------------------------------
 python3 fetch_used_ips.py
 
-# Example output:
-# {"used_ips": ["192.168.0.11", "192.168.0.12", "192.168.0.13"]}
+Example output:
+{"used_ips": ["192.168.0.11", "192.168.0.12", "192.168.0.13"]}
 
-# -------------------------------
-# Step 2: Determine the next free IP
-# -------------------------------
+-------------------------------
+# Step 4: Determine the next free IP
+-------------------------------
 cat <<EOF | python3 next_ip.py
 {
   "start": 11,
@@ -94,24 +94,24 @@ cat <<EOF | python3 next_ip.py
 }
 EOF
 
-# Example output:
-# {"ip_address": "192.168.0.14"}
+Example output:
+{"ip_address": "192.168.0.14"}
 
-# -------------------------------
-# Step 3: Provision the VM with Terraform
-# -------------------------------
+-------------------------------
+# Step 5: Provision the VM with Terraform
+-------------------------------
 terraform init
 terraform plan
 terraform apply
 
-# Terraform will:
-# - Fetch used IPs from Proxmox
-# - Determine the next free IP
-# - Clone the VM from the template
-# - Configure CPU, memory, and network
-# - Assign the IP address to the new VM
+Terraform will:
+  - Fetch used IPs from Proxmox
+  - Determine the next free IP
+  - Clone the VM from the template
+  - Configure CPU, memory, and network
+  - Assign the IP address to the new VM
 
-# Notes:
-# - IPs are assigned sequentially from ip_range_start to ip_range_end.
-# - Make sure the Proxmox API token has permissions for VM read, clone, and network configuration.
-# - The scripts currently ignore SSL verification (verify=False) – for production, provide valid certificates.
+ Notes:
+ - IPs are assigned sequentially from ip_range_start to ip_range_end.
+ - Make sure the Proxmox API token has permissions for VM read, clone, and network configuration.
+ - The scripts currently ignore SSL verification (verify=False) – for production, provide valid certificates.
